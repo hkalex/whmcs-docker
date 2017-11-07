@@ -33,3 +33,6 @@ RUN systemctl restart nginx.service php7.0-fpm.service
 
 EXPOSE 80
 
+STOPSIGNAL SIGTERM
+
+CMD ["nginx", "-g", "daemon off;"]
