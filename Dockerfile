@@ -24,7 +24,7 @@ RUN wget http://hkalex.com/whmcs/whmcs_v730_full_nulled_by_jonvi.zip -O /tmp/whm
     && chmod 766 /var/www/whmcs/configuration.php
 
 # download nginx configuration
-COPY conf/nginx-default /etc/nginx/sites-available
+COPY conf/nginx-default /etc/nginx/sites-available/default
 
 EXPOSE 80
 
