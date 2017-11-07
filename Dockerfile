@@ -4,7 +4,7 @@ LABEL Author="Alex Yeung <ayeung@aipm.co>"
 
 # install all required packages
 RUN apt-get update \
-    && apt-get install -qqy unzip nginx php7.0 php7.0-fpm php7.0-cli php7.0-common php7.0-mbstring php7.0-gd php7.0-intl php7.0-xml php7.0-mysql php7.0-mcrypt php7.0-zip curl php7.0-curl libcurl4-openssl-dev \
+    && apt-get install -qqy wget unzip nginx php7.0 php7.0-fpm php7.0-cli php7.0-common php7.0-mbstring php7.0-gd php7.0-intl php7.0-xml php7.0-mysql php7.0-mcrypt php7.0-zip curl php7.0-curl libcurl4-openssl-dev \
     && apt-get clean -qq \
     && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
