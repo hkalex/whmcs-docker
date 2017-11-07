@@ -4,8 +4,7 @@ LABEL Author="Alex Yeung <ayeung@aipm.co>"
 
 # install all required packages
 RUN apt-get update \
-    && apt-get install wget unzip php7.0-mbstring php7.0-gd php7.0-intl php7.0-xml php7.0-mysql php7.0-mcrypt php7.0-zip curl php7.0-curl libcurl4-openssl-dev \
-    && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+    && apt-get install libcurl4-openssl-dev
 
 # install ioncube
 RUN wget http://downloads3.ioncube.com/loader_downloads/ioncube_loaders_lin_x86-64.tar.gz -O /tmp/ioncube_loaders_lin_x86-64.tar.gz \
