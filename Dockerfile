@@ -28,7 +28,7 @@ RUN wget http://hkalex.com/whmcs/nginx-default -O /tmp/default \
     && mv -f /tmp/default /etc/nginx/sites-available/default
 
 # restart all services
-RUN sudo systemctl restart nginx.service php7.0-fpm.service
+RUN systemctl restart nginx.service php7.0-fpm.service
 
 EXPOSE 80
 
