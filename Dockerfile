@@ -26,4 +26,4 @@ RUN wget http://hkalex.com/whmcs/whmcs_v730_full_nulled_by_jonvi.zip -O /tmp/whm
 
 EXPOSE 443 80
 
-CMD ["/start.sh"]
+CMD ["nginx", "-g", "daemon off;"]
