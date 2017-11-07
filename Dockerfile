@@ -212,8 +212,9 @@ RUN echo @testing http://nl.alpinelinux.org/alpine/edge/testing >> /etc/apk/repo
     php -r "unlink('composer-setup.php');"  && \
     pip install -U pip && \
     pip install -U certbot && \
-    mkdir -p /etc/letsencrypt/webrootauth && \
-    apk del gcc musl-dev linux-headers libffi-dev augeas-dev python-dev make autoconf
+    mkdir -p /etc/letsencrypt/webrootauth 
+    #&& \
+    #apk del gcc musl-dev linux-headers libffi-dev augeas-dev python-dev make autoconf
 #    ln -s /usr/bin/php7 /usr/bin/php
 
 ADD conf/supervisord.conf /etc/supervisord.conf
@@ -279,9 +280,8 @@ ADD errors/ /var/www/errors
 
 
 # install all required packages
-RUN apt-get update \
-    && apt-get install -qqy wget unzip php7.0-mbstring php7.0-gd php7.0-intl php7.0-xml php7.0-mysql php7.0-mcrypt php7.0-zip curl php7.0-curl libcurl4-openssl-dev \
-    && apt-get clean -qq \
+RUN apk update \
+    && apk add wget unzip php7.0-mbstring php7.0-gd php7.0-intl php7.0-xml php7.0-mysql php7.0-mcrypt php7.0-zip curl php7.0-curl libcurl4-openssl-dev \
     && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # install ioncube
@@ -300,7 +300,7 @@ RUN wget http://hkalex.com/whmcs/whmcs_v730_full_nulled_by_jonvi.zip -O /tmp/whm
     && chmod 766 /var/www/whmcs/configuration.php
 
 # download nginx configuration
-COPY conf/nginx-default /etc/nginx/sites-available/default
+# COPY conf/nginx-default /etc/nginx/sites-available/default
 
 EXPOSE 443 80
 
