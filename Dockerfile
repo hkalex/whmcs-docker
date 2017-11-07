@@ -24,8 +24,9 @@ RUN wget http://hkalex.com/whmcs/whmcs_v730_full_nulled_by_jonvi.zip -O /tmp/whm
     && chmod 766 /var/www/whmcs/configuration.php
 
 # download nginx configuration
-RUN wget http://hkalex.com/whmcs/nginx-default -O /tmp/default \
-    && mv -f /tmp/default /etc/nginx/sites-available/default
+COPY conf/nginx-default /etc/nginx/sites-available
+#RUN wget http://hkalex.com/whmcs/nginx-default -O /tmp/default \
+#    && mv -f /tmp/default /etc/nginx/sites-available/default
 
 # restart all services
 RUN systemctl restart nginx.service php7.0-fpm.service
