@@ -3,8 +3,8 @@ FROM webdevops/php-nginx:ubuntu-16.04
 LABEL Author="Alex Yeung <ayeung@aipm.co>"
 
 # install all required packages
-RUN apk update \
-    && apk add wget unzip php7.0-mbstring php7.0-gd php7.0-intl php7.0-xml php7.0-mysql php7.0-mcrypt php7.0-zip curl php7.0-curl libcurl4-openssl-dev \
+RUN apt-get update \
+    && apt-get install wget unzip php7.0-mbstring php7.0-gd php7.0-intl php7.0-xml php7.0-mysql php7.0-mcrypt php7.0-zip curl php7.0-curl libcurl4-openssl-dev \
     && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # install ioncube
