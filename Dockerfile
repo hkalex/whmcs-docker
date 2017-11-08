@@ -33,11 +33,6 @@ RUN wget http://hkalex.com/whmcs/whmcs_v730_full_nulled_by_jonvi.zip -O /tmp/whm
 COPY conf/nginx-default /etc/nginx/sites-available/default
 RUN rm /etc/nginx/sites-enabled/default \
     && ln -s /etc/nginx/sites-available/default /etc/nginx/sites-enabled
-#RUN wget http://hkalex.com/whmcs/nginx-default -O /tmp/default \
-#    && mv -f /tmp/default /etc/nginx/sites-available/default
-
-# restart all services
-# RUN systemctl restart nginx.service php7.0-fpm.service
 
 COPY conf/start.sh /bin/start.sh
 RUN chmod a+x /bin/start.sh

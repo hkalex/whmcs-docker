@@ -1,0 +1,26 @@
+version: '3'
+services:
+  whmcs:
+    build: .
+    image: hkalex/whmcs
+    ports:
+      - 80:80
+      - 443:443
+    links:
+      - mysql:db
+
+  mysql:
+    image: mysql:latest
+    # ports:
+    #   - 3306:3306
+    volumes:
+      - ~/mysql/datadir:/var/lib/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=my-secret-pw
+
+  myadmin:
+    image: phpmyadmin/phpmyadmin
+    ports:
+      - 8082:80
+    links:
+      - mysql:db
